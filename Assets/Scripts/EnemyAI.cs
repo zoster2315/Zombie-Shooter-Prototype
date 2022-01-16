@@ -60,7 +60,6 @@ public class EnemyAI : MonoBehaviour
             {
                 animator.SetBool("Attack", true);
             }
-        Debug.Log($"{name} attacked {target.name}");
     }
 
     private void OnDrawGizmosSelected()

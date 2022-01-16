@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 4186034805712342606}
   - component: {fileID: 4186034805701076910}
   - component: {fileID: 4186034805702141838}
+  - component: {fileID: 4394654216040390335}
   - component: {fileID: 4186034805708927246}
   - component: {fileID: 4186034805707426702}
   m_Layer: 0
@@ -301,6 +302,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+--- !u!114 &4394654216040390335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4186034805711852142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b69468dabefb942933a79ca9a8aac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 100
 --- !u!54 &4186034805708927246
 Rigidbody:
   m_ObjectHideFlags: 0
