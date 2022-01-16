@@ -2408,6 +2408,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1088720126591891353, guid: 1eb623035f0b15740b30506e82db14f7, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 423062142}
     - target: {fileID: 1418614772254364867, guid: 1eb623035f0b15740b30506e82db14f7, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -2469,6 +2473,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2855294401066766839, guid: 12b0a3e5eff190b4bac3b464e48a32af, type: 3}
+      propertyPath: HitEffectDestroyTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866550939438076581, guid: 12b0a3e5eff190b4bac3b464e48a32af, type: 3}
+      propertyPath: m_Name
+      value: Muzzle Flash VFX
+      objectReference: {fileID: 0}
     - target: {fileID: 4186034805711852142, guid: 12b0a3e5eff190b4bac3b464e48a32af, type: 3}
       propertyPath: m_Name
       value: Player
