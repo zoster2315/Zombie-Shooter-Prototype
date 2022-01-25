@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(DeathHandler))]
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints = 100f;
@@ -10,6 +11,6 @@ public class PlayerHealth : MonoBehaviour
     {
         hitPoints -= damage;
         if (hitPoints <= 0)
-            Debug.Log("Player is dead");
+            GetComponent<DeathHandler>().HandleDeath();
     }
 }
