@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 7415067033631370009}
   - component: {fileID: 4186034805708927246}
   - component: {fileID: 4186034805707426702}
+  - component: {fileID: 821063027162749770}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -446,6 +447,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &821063027162749770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4186034805711852142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abf9683922c0f34e944e43c3539aa02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoAmount: 10
+  ammoText: {fileID: 0}
 --- !u!1001 &3594765765854274150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -453,6 +468,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 405683006731730214}
     m_Modifications:
+    - target: {fileID: -7619202944914312303, guid: b5b45bd4cc05a8a4aa402055029bb5ab, type: 3}
+      propertyPath: ammo
+      value: 
+      objectReference: {fileID: 821063027162749770}
     - target: {fileID: -7619202944914312303, guid: b5b45bd4cc05a8a4aa402055029bb5ab, type: 3}
       propertyPath: FPCamera
       value: 

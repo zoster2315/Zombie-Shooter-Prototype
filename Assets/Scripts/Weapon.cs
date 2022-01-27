@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] ParticleSystem shootVFX;
     [SerializeField] GameObject HitEffect;
     [SerializeField] float HitEffectDestroyTime = 0.1f;
+    [SerializeField]Ammo ammo;
 
     private void Update()
     {
@@ -21,8 +22,12 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        ProcessRaycast();
-        StartShootVFX();
+        if (ammo.AmmoAmount > 0)
+        {
+            ProcessRaycast();
+            ammo.SubtractAmmo();
+            StartShootVFX();
+        }
     }
 
     private void ProcessRaycast()
