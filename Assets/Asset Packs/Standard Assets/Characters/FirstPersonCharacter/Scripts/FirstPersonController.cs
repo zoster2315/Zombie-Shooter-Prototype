@@ -29,6 +29,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
+        [SerializeField]
+        bool zoomed = false;
+        [SerializeField]
+        float originalFov = 60;
+        [SerializeField]
+        float zoomedFov = 25;
+        [SerializeField]
+        float zoomedXSensitivity = 1;
+        [SerializeField]
+        float zoomedYSensitivity = 1;
+
+        float origXSensitivity;
+        float origYSensitivity;
+
         private Camera m_Camera;
         private bool m_Jump;
         private float m_YRotation;
@@ -56,6 +70,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
             m_MouseLook.Init(transform, m_Camera.transform);
+            origXSensitivity = m_MouseLook.XSensitivity;
+            origYSensitivity = m_MouseLook.YSensitivity;
         }
 
 
@@ -82,8 +98,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                zoomed = !zoomed;
+
+                UpdateFOV();
+                UpdateSensitivity();
+            }
         }
 
+        private void UpdateFOV()
+        {
+            m_Camera.fieldOfView = zoomed ? zoomedFov : originalFov;
+        }
+
+        private void UpdateSensitivity()
+        {
+            m_MouseLook.XSensitivity = zoomed ? zoomedXSensitivity : origXSensitivity;
+            m_MouseLook.YSensitivity = zoomed ? zoomedYSensitivity : origYSensitivity;
+        }
 
         private void PlayLandingSound()
         {
