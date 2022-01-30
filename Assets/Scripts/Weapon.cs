@@ -10,24 +10,32 @@ public class Weapon : MonoBehaviour
     [SerializeField] ParticleSystem shootVFX;
     [SerializeField] GameObject HitEffect;
     [SerializeField] float HitEffectDestroyTime = 0.1f;
-    [SerializeField]Ammo ammo;
+    [SerializeField] Ammo ammo;
+    [SerializeField] float shootTimeOut = 0.1f;
+
+    bool canShoot = true;
 
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            if (canShoot)
+                StartCoroutine(Shoot());
         }
     }
 
-    void Shoot()
+    IEnumerator Shoot()
     {
+        canShoot = false;
         if (ammo.AmmoAmount > 0)
         {
             ProcessRaycast();
             ammo.SubtractAmmo();
             StartShootVFX();
         }
+        yield return new WaitForSeconds(shootTimeOut);
+        canShoot = true;
+        StopCoroutine(Shoot());
     }
 
     private void ProcessRaycast()
