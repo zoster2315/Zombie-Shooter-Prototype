@@ -11,9 +11,16 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject HitEffect;
     [SerializeField] float HitEffectDestroyTime = 0.1f;
     [SerializeField] Ammo ammo;
+    [SerializeField] AmmoType ammoType;
     [SerializeField] float shootTimeOut = 0.1f;
 
     bool canShoot = true;
+
+    private void OnEnable()
+    {
+        canShoot = true;
+        ammo.SetCurrentAmmoType(ammoType);
+    }
 
     private void Update()
     {
@@ -27,10 +34,10 @@ public class Weapon : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-        if (ammo.AmmoAmount > 0)
+        if (ammo.GetCurrentAmmo(ammoType) > 0)
         {
             ProcessRaycast();
-            ammo.SubtractAmmo();
+            ammo.SubtractAmmo(ammoType);
             StartShootVFX();
         }
         yield return new WaitForSeconds(shootTimeOut);

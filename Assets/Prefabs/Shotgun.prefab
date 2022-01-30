@@ -72,6 +72,7 @@ MonoBehaviour:
   HitEffect: {fileID: 2738118024492431419, guid: 1e2b149beec122a49b3da5e3030ea881, type: 3}
   HitEffectDestroyTime: 0.1
   ammo: {fileID: 0}
+  ammoType: 2
   shootTimeOut: 2
 --- !u!1 &7639135402337479451
 GameObject:

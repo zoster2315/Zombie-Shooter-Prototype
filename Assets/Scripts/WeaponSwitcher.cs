@@ -48,7 +48,7 @@ public class WeaponSwitcher : MonoBehaviour
     void ProcessScrollWheel()
     {
         var mouseScroll = Input.GetAxis("Mouse ScrollWheel");
-        int mouseScrollDirection = mouseScroll > 0 ? 1 : mouseScroll < 0 ? -1 : 0;
+        int mouseScrollDirection = mouseScroll > 0 ? -1 : mouseScroll < 0 ? 1 : 0;
 
         currentWeapon += mouseScrollDirection;
         if (currentWeapon < 0)

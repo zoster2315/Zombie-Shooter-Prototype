@@ -5,23 +5,47 @@ using TMPro;
 
 public class Ammo : MonoBehaviour
 {
-    [SerializeField] int ammoAmount = 10;
+    [SerializeField] AmmoSlot[] ammoSlots;
     [SerializeField] TextMeshProUGUI ammoText;
-    public int AmmoAmount { get { return ammoAmount; } }
+    [SerializeField] AmmoType currnetAmmoType;
+
+    [System.Serializable]
+    private class AmmoSlot
+    {
+        public AmmoType ammoType;
+        public int ammoAmount;
+    }
+
+    public int GetCurrentAmmo(AmmoType ammoType)
+    {
+        AmmoSlot ammoSlot = GetAmmoSlot(ammoType);
+        if (ammoSlot == null)
+            return 0;
+
+        return ammoSlot.ammoAmount;
+    }
 
     private void Start()
     {
         UpdateAmmoText();
     }
-    public void SubtractAmmo()
+    public void SubtractAmmo(AmmoType ammoType)
     {
-        ammoAmount--;
+        AmmoSlot ammoSlot = GetAmmoSlot(ammoType);
+        if (ammoSlot == null)
+            return;
+
+        ammoSlot.ammoAmount--;
         UpdateAmmoText();
     }
 
-    public void AddAmmo(int count)
+    public void AddAmmo(AmmoType ammoType, int count)
     {
-        ammoAmount += count;
+        AmmoSlot ammoSlot = GetAmmoSlot(ammoType);
+        if (ammoSlot == null)
+            return;
+
+        ammoSlot.ammoAmount += count;
         UpdateAmmoText();
     }
 
@@ -29,6 +53,25 @@ public class Ammo : MonoBehaviour
     {
         if (ammoText == null)
             return;
-        ammoText.text = ammoAmount.ToString();
+
+        AmmoSlot ammoSlot = GetAmmoSlot(currnetAmmoType);
+        if (ammoSlot == null)
+            return;
+
+        ammoText.text = ammoSlot.ammoAmount.ToString();
+    }
+
+    private AmmoSlot GetAmmoSlot(AmmoType ammoType)
+    {
+        foreach (var ammo in ammoSlots)
+            if (ammo.ammoType == ammoType)
+                return ammo;
+        return null;
+    }
+
+    public void SetCurrentAmmoType(AmmoType ammoType)
+    {
+        currnetAmmoType = ammoType;
+        UpdateAmmoText();
     }
 }

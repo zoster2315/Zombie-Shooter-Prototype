@@ -5,13 +5,14 @@ using UnityEngine;
 public class AmmoPickUp : MonoBehaviour
 {
     [SerializeField] int ammoCount;
+    [SerializeField] AmmoType ammoType;
 
     private void OnTriggerEnter(Collider other)
     {
         Ammo ammo = other.GetComponentInChildren<Ammo>();
-        if (ammo != null)
+        if (other.gameObject.CompareTag("Player") && ammo != null)
         {
-            ammo.AddAmmo(ammoCount);
+            ammo.AddAmmo(ammoType, ammoCount);
             Destroy(gameObject);
         }
     }

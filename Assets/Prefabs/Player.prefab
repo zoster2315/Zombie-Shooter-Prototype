@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721d9a943890e9946b6986c7cb698b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeapon: 0
 --- !u!1 &4186034805711852140
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +475,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abf9683922c0f34e944e43c3539aa02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 10
+  ammoSlots:
+  - ammoType: 0
+    ammoAmount: 20
+  - ammoType: 1
+    ammoAmount: 10
+  - ammoType: 2
+    ammoAmount: 3
   ammoText: {fileID: 0}
 --- !u!1001 &1613540007611788543
 PrefabInstance:
@@ -497,7 +504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5909492764202202744, guid: ba6ee6f9f5fb37049bb364164e261da1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.007
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5909492764202202744, guid: ba6ee6f9f5fb37049bb364164e261da1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -505,7 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5909492764202202744, guid: ba6ee6f9f5fb37049bb364164e261da1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.121
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 5909492764202202744, guid: ba6ee6f9f5fb37049bb364164e261da1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -607,7 +614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7639135402337479449, guid: 2bf6609cb041c5e4285ec2b1bbff2fca, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878739589346911085, guid: 2bf6609cb041c5e4285ec2b1bbff2fca, type: 3}
       propertyPath: ammo
@@ -643,6 +650,10 @@ PrefabInstance:
       propertyPath: FPCamera
       value: 
       objectReference: {fileID: 4186034805713883214}
+    - target: {fileID: -7619202944914312303, guid: b5b45bd4cc05a8a4aa402055029bb5ab, type: 3}
+      propertyPath: ammoType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2463272750609456675, guid: b5b45bd4cc05a8a4aa402055029bb5ab, type: 3}
       propertyPath: m_Name
       value: Ak-47
